@@ -4,6 +4,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 
 export function Navbar() {
   return (
@@ -18,7 +20,11 @@ export function Navbar() {
             <span className='px-2 text-gray-500 dark:text-white'>|</span>
             <MenuButton text="Fun" route="/hobbies" />
           </div>
-          <ContactButton />
+          <div>
+            <ThemeSwitcher />
+            <span className='px-2 text-gray-500 dark:text-white'>|</span>
+            <ContactButton />
+          </div>
         </div>
       </div>
     </nav>
@@ -44,5 +50,42 @@ function ContactButton() {
       <div className='px-1 inline-flex'></div>
       <FontAwesomeIcon className='text-sm' icon={faEnvelope} />
     </Link>
+  );
+}
+
+function ThemeSwitcher() {
+  const [ theme, setTheme ] = useLocalStorage('theme', 'light');
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    const handleThemeChange = (e: MediaQueryListEvent) => {
+      const newTheme = e.matches ? 'dark' : 'light';
+      setTheme(newTheme);
+    };
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', handleThemeChange);
+    if (mediaQuery.matches) {
+      setTheme('dark');
+    }
+    return () => {
+      mediaQuery.removeEventListener('change', handleThemeChange);
+    };
+  }, [ setTheme ]);
+
+  useEffect(() => {
+    const htmlSelector = document.querySelector('html');
+    if (htmlSelector) {
+      htmlSelector.classList.remove('light', 'dark');
+      htmlSelector.classList.add(theme);
+    }
+  }, [ theme ]);
+
+  return (
+    <button onClick={toggleTheme} className="text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-white rounded-md p-2">
+      {theme === 'light' ? '☀️' : '🌙'}
+    </button>
   );
 }
