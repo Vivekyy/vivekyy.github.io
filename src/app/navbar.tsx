@@ -61,6 +61,7 @@ function ThemeSwitcher() {
   };
 
   useEffect(() => {
+    // Set theme based on system preference
     const handleThemeChange = (e: MediaQueryListEvent) => {
       const newTheme = e.matches ? 'dark' : 'light';
       setTheme(newTheme);
@@ -75,6 +76,7 @@ function ThemeSwitcher() {
     };
   }, [ setTheme ]);
 
+  // Set theme based on local storage
   useEffect(() => {
     const htmlSelector = document.querySelector('html');
     if (htmlSelector) {
