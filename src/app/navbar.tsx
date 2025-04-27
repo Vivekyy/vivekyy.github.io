@@ -1,5 +1,7 @@
 'use client';
 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -39,6 +41,8 @@ function ContactButton() {
   return (
     <Link href="/contact" className={`${inFocus ? 'bg-gray-600' : 'bg-gray-900 hover:bg-gray-700'} rounded-md px-3 py-2 text-sm font-medium text-white focus:bg-gray-600`}>
       Contact Me
+      <div className='px-1 inline-flex'></div>
+      <FontAwesomeIcon className='text-sm' icon={faEnvelope} />
     </Link>
   );
 }
