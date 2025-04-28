@@ -13,7 +13,8 @@ export default function Home(){
             alt="Vivek Yanamadula"
             width={180}
             height={180}
-            className="rounded-full" />
+            className="rounded-full"
+          />
         </div>
         <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-white">
         Welcome to my personal website!
