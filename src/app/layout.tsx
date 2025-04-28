@@ -3,8 +3,8 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import React from 'react';
+import { Navbar } from './_components/navbar';
 import './globals.css';
-import { Navbar } from './navbar';
 
 config.autoAddCss = false;
 
@@ -34,7 +34,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        {children}
+        <div className='bg-gray-300 dark:bg-gray-700'>
+          {children}
+        </div>
       </body>
     </html>
   );
