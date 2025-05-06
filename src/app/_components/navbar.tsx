@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 
 export function Navbar() {
@@ -85,14 +85,22 @@ function ThemeSwitcher() {
     }
   }, [ theme ]);
 
-  let toggleIcon = theme === 'light' ? '☀️' : '🌙';
+  // Hydration fix
+  const [ hydrated, setHydrated ] = useState(false);
+
   useEffect(() => {
-    toggleIcon = theme === 'light' ? '☀️' : '🌙';
-  }, [ theme ]);
+    // this forces a rerender
+    setHydrated(true);
+  }, []);
+
+  if(!hydrated) {
+    // this returns null on first render, so the client and server match
+    return null;
+  }
 
   return (
     <button onClick={toggleTheme} className="text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-white rounded-md p-2">
-      {toggleIcon}
+      {theme === 'light' ? '☀️' : '🌙'}
     </button>
   );
 }
