@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { Card } from './_components/card';
 import { PageContent } from './_components/pageContent';
+import { Typewriter } from './_utils/typewriter';
 
 export default function Home(){
   return (
@@ -20,7 +21,7 @@ export default function Home(){
         Welcome to my personal website!
         </h1>
         <p className="mt-4 text-lg text-center text-gray-600 dark:text-gray-400">
-        I&apos;m Vivek Yanamadula, a software engineer and tech enthusiast. <br />
+          <Typewriter text="Hi! I'm Vivek, a fullstack software engineer and tech enthusiast." />
         </p>
       </Card>
     </PageContent>
