@@ -18,12 +18,9 @@ export function Typewriter({text}: {text: string}) {
   }, [ index, text ]);
 
   return (
-    <span>{text.substring(0, index)}<Cursor /></span>
-  );
-}
-
-function Cursor() {
-  return (
-    <span className="animate-pulsefade">|</span>
+    <span>
+      {text.substring(0, index)}
+      <span className="animate-pulsefade">|</span>
+    </span>
   );
 }
