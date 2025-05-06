@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import React from 'react';
 import { Navbar } from './_components/navbar';
+import { PageContent } from './_components/pageContent';
 import './globals.css';
 
 config.autoAddCss = false;
@@ -35,7 +36,9 @@ export default function RootLayout({
       >
         <Navbar />
         <div className='bg-gray-300 dark:bg-gray-700'>
-          {children}
+          <PageContent>
+            {children}
+          </PageContent>
         </div>
       </body>
     </html>
