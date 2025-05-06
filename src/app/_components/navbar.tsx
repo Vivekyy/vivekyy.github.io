@@ -60,8 +60,8 @@ function ThemeSwitcher() {
     setTheme(newTheme);
   };
 
+  // Set theme based on system preference
   useEffect(() => {
-    // Set theme based on system preference
     const handleThemeChange = (e: MediaQueryListEvent) => {
       const newTheme = e.matches ? 'dark' : 'light';
       setTheme(newTheme);
@@ -85,9 +85,14 @@ function ThemeSwitcher() {
     }
   }, [ theme ]);
 
+  let toggleIcon = theme === 'light' ? '☀️' : '🌙';
+  useEffect(() => {
+    toggleIcon = theme === 'light' ? '☀️' : '🌙';
+  }, [ theme ]);
+
   return (
     <button onClick={toggleTheme} className="text-gray-500 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 hover:text-white rounded-md p-2">
-      {theme === 'light' ? '☀️' : '🌙'}
+      {toggleIcon}
     </button>
   );
 }
