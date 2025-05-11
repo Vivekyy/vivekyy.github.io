@@ -20,7 +20,7 @@ export function Sidebar() {
         Fullstack Software Engineer
       </p>
       <div className=''>
-        <Socials iconClassName="m-2 hover:text-gray-300 dark:hover:text-gray-200"/>
+        <Socials iconClassName="m-2 hover:text-gray-400 dark:hover:text-gray-200"/>
       </div>
     </div>
   );
