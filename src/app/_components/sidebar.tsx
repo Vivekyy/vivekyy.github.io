@@ -16,7 +16,7 @@ export function Sidebar() {
       <h1 className="text-md font-bold text-center text-gray-800 dark:text-white">
         Vivek Yanamadula
       </h1>
-      <p className="mt-1 text-sm text-center text-gray-600 dark:text-gray-400">
+      <p className="mt-1 text-sm italic text-center text-gray-600 dark:text-gray-400">
         Fullstack Software Engineer
       </p>
       <div className=''>
