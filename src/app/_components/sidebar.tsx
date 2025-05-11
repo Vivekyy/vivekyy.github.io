@@ -3,8 +3,8 @@ import { Socials } from './socials';
 
 export function Sidebar() {
   return (
-    <div className="absolute left-0 top-14 h-[calc(100svh-3.5rem)] items-center justify-center text-center bg-gray-400 dark:bg-gray-600 p-14">
-      <div className="flex items-center justify-center w-40 h-40 mb-4 bg-gray-300 dark:bg-gray-900 rounded-full">
+    <div className="absolute left-0 top-14 h-[calc(100svh-3.5rem)] items-center justify-center text-center bg-[#c2c6cd] dark:bg-gray-600 p-14">
+      <div className="flex items-center justify-center w-40 h-40 mb-4 bg-gray-200 dark:bg-gray-900 rounded-full">
         <Image
           src="/static/me.jpg"
           alt="Vivek Yanamadula"
