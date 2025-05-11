@@ -1,7 +1,5 @@
-import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card } from '../_components/card';
+import { Socials } from '../_components/socials';
 
 export default function Contact() {
   return (
@@ -12,11 +10,8 @@ export default function Contact() {
       <p className="mt-4 text-lg text-center text-gray-600 dark:text-gray-400">
             Please feel free to reach out to me via any channel!
       </p>
-      <div className='inline-flex animate-fadein mt-4 text-lg text-center text-gray-600 dark:text-gray-400'>
-        <a href="mailto:vivekyanamadula@gmail.com" className='m-2 hover:text-gray-400 dark:hover:text-gray-200' target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faEnvelope} /></a>
-        <a href="https://www.linkedin.com/in/vivekyy/" className='m-2 hover:text-gray-400 dark:hover:text-gray-200' target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
-        <a href="https://github.com/Vivekyy" className='m-2 hover:text-gray-400 dark:hover:text-gray-200' target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithub} /></a>
-        <a href="https://www.instagram.com/_viveky_/" className='m-2 hover:text-gray-400 dark:hover:text-gray-200' target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faInstagram} /></a>
+      <div className='animate-fadein mt-4'>
+        <Socials iconClassName="m-2 hover:text-gray-400 dark:hover:text-gray-200"/>
       </div>
     </Card>);
 }
