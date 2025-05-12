@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import React from 'react';
 import { Navbar } from './_components/navbar';
-import { PageContent } from './_components/pageContent';
 import './globals.css';
 
 config.autoAddCss = false;
@@ -35,10 +34,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <div className='bg-gray-300 dark:bg-gray-700'>
-          <PageContent>
-            {children}
-          </PageContent>
+        <div className='bg-gray-300 dark:bg-gray-700 inline-flex w-full'>
+          {children}
         </div>
       </body>
     </html>
