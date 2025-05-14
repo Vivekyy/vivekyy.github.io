@@ -15,21 +15,26 @@ export default async function Projects() {
       <Sidebar />
       <PageContent>
         <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white my-4">
+          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white my-4">
           Pages I&apos;ve Contributed To
           </h2>
         </div>
         <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white mb-4">
           Services I&apos;ve Helped Build
           </h2>
         </div>
         <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
+          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white mb-4">
+          Papers I&apos;ve Written
+          </h2>
+        </div>
+        <div className='w-[calc(.85*(100svw-272px))]'>
+          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
           Recent Personal Projects
           </h2>
         </div>
-        <Card padding={10}>
+        <Card padding="p-10">
           <div className='w-[calc(.8*(100svw-272px))]'>
             <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white mb-4">
               Recent Repositories
@@ -44,7 +49,7 @@ export default async function Projects() {
             </SubCard>
           </div>
         </Card>
-        <Card padding={10}>
+        <Card padding="p-10">
           <div className='w-[calc(.8*(100svw-272px))]'>
             <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white mb-4">
               Google Scholar
