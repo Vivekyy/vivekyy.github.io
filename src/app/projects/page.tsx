@@ -15,7 +15,7 @@ export default async function Projects() {
       <Sidebar />
       <PageContent>
         <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-white my-4">
           Pages I&apos;ve Contributed To
           </h2>
         </div>
@@ -25,7 +25,7 @@ export default async function Projects() {
           </h2>
         </div>
         <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-white">
           Recent Personal Projects
           </h2>
         </div>

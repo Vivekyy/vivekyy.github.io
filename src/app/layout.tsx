@@ -32,10 +32,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#c2c6cd] dark:bg-gray-600`}
       >
         <Navbar />
-        <div className='absolute top-[3.5rem] bg-gray-300 dark:bg-gray-700 inline-flex w-full h-max'>
+        <div className='absolute top-[3.5rem] bg-gray-300 dark:bg-gray-700 inline-flex w-full h-[calc(100vh-3.5rem)]'>
           {children}
         </div>
         <Footer />
