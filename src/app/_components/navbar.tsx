@@ -10,9 +10,9 @@ import { useLocalStorage } from 'usehooks-ts';
 export function Navbar() {
   return (
     <nav className="bg-gray-200 dark:bg-gray-800 transition-colors">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-14 items-center justify-between">
-          <Link href="/" className='text-black dark:text-white font-semibold'>Vivek Yanamadula</Link>
+      <Link href="/" className='absolute left-6 top-4 text-black dark:text-white font-semibold'>Vivek Yanamadula</Link>
+      <div className="w-screen mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-14 items-center justify-center">
           <div>
             <MenuButton text="Home" route="/" />
             <span className='px-2 text-gray-500 dark:text-white'>|</span>
@@ -20,12 +20,12 @@ export function Navbar() {
             <span className='px-2 text-gray-500 dark:text-white'>|</span>
             <MenuButton text="Fun" route="/hobbies" />
           </div>
-          <div>
-            <ThemeSwitcher />
-            <span className='px-2 text-gray-500 dark:text-white'>|</span>
-            <ContactButton />
-          </div>
         </div>
+      </div>
+      <div className='absolute right-6 top-2'>
+        <ThemeSwitcher />
+        <span className='px-2 text-gray-500 dark:text-white'>|</span>
+        <ContactButton />
       </div>
     </nav>
   );
