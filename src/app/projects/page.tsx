@@ -7,8 +7,8 @@ import { getReposByUser } from '../_utils/githubClient';
 import { getScholarResultsByAuthor } from '../_utils/googleScholarClient';
 
 export default async function Projects() {
-  const repos = await getReposByUser('vivekyy', 5);
-  const scholarEntries = await getScholarResultsByAuthor('Vivek Yanamadula');
+  const repos = await getReposByUser('vivekyy', 4);
+  const scholarEntries = await getScholarResultsByAuthor('Vivek Yanamadula', 4);
 
   return (
     <>

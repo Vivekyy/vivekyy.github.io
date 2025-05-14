@@ -28,6 +28,7 @@ const eslintConfig = [
       'comma-style': [ 'error', 'last' ],
       'comma-spacing': [ 'error', { 'before': false, 'after': true } ],
       'key-spacing': [ 'error', { 'beforeColon': false, 'afterColon': true } ],
+      '@typescript-eslint/no-explicit-any': 'warn',
     }
   }
 ];
