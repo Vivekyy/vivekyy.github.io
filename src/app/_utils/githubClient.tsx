@@ -17,21 +17,14 @@ export function getCommitsByRepo(owner: string, repo: string, per_page?: number)
   });
 }
 
-export function getEventsByUser(username: string, per_page?: number) {
-  return octokit.request('GET /users/{username}/events', {
+export function getReposByUser(username: string, per_page?: number) {
+  return octokit.request('GET /users/{username}/repos', {
     username,
     headers: {
       'X-GitHub-Api-Version': '2022-11-28'
     },
+    type: 'all',
+    sort: 'updated',
     per_page,
-  });
-}
-
-export function getPushesByUser(username: string, max_events: number) {
-  return getEventsByUser(username, 100).then((res) => {
-    const events = res.data;
-    const pushes = events.filter((event) => event.type === 'PushEvent');
-    const pushesToReturn = pushes.slice(0, max_events);
-    return pushesToReturn;
   });
 }

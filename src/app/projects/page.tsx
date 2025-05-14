@@ -1,17 +1,49 @@
+import { faBook, faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Card, SubCard } from '../_components/card';
 import { PageContent } from '../_components/pageContent';
 import { Sidebar } from '../_components/sidebar';
+import { getReposByUser } from '../_utils/githubClient';
+import { getScholarResultsByAuthor } from '../_utils/googleScholarClient';
 
-export default function Projects() {
+export default async function Projects() {
+  const repos = await getReposByUser('vivekyy', 5);
+  const scholarEntries = await getScholarResultsByAuthor('Vivek Yanamadula');
+
   return (
     <>
       <Sidebar />
       <PageContent>
-        <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-white">
-        Projects
-        </h1>
-        <p className="mt-4 text-lg text-center text-gray-600 dark:text-gray-400">
-        Here are some of my projects.
-        </p>
+        <Card padding={10}>
+          <div className='w-[55svw]'>
+            <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white mb-4">
+              Recent Repositories
+            </h1>
+            <SubCard>
+              <div className='flex flex-col text-md text-gray-800 font-medium dark:text-gray-200 text-left'>
+                {repos.data.map((repo, index) => (
+                  <a className='m-1' href={repo.html_url} target='_blank' rel="noopener noreferrer" key={index}>
+                    <FontAwesomeIcon icon={faBook} className='mx-2' />{`Vivekyy/${repo.name}`}
+                  </a>))}
+              </div>
+            </SubCard>
+          </div>
+        </Card>
+        <Card padding={10}>
+          <div className='w-[55svw]'>
+            <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white mb-4">
+              Google Scholar
+            </h1>
+            <SubCard>
+              <div className='flex flex-col text-md text-gray-800 font-medium dark:text-gray-200 text-left'>
+                {scholarEntries.map((entry, index) => (
+                  <a className='m-1' href={entry.link} target='_blank' rel="noopener noreferrer" key={index}>
+                    <FontAwesomeIcon icon={faNewspaper} className='mx-2' />{entry.title}
+                  </a>))}
+              </div>
+            </SubCard>
+          </div>
+        </Card>
       </PageContent>
     </>
   );
