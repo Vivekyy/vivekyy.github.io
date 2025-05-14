@@ -20,10 +20,10 @@ export default async function Projects() {
               Recent Repositories
             </h1>
             <SubCard>
-              <div className='flex flex-col text-md text-gray-800 font-medium dark:text-gray-200 text-left'>
+              <div className='flex flex-col text-md text-blue-700 dark:text-blue-400 font-medium text-left'>
                 {repos.data.map((repo, index) => (
                   <a className='m-1' href={repo.html_url} target='_blank' rel="noopener noreferrer" key={index}>
-                    <FontAwesomeIcon icon={faBook} className='mx-2' />{`Vivekyy/${repo.name}`}
+                    <FontAwesomeIcon icon={faBook} className='mx-2 text-gray-800 dark:text-gray-200' />{`Vivekyy/${repo.name}`}
                   </a>))}
               </div>
             </SubCard>
@@ -35,10 +35,10 @@ export default async function Projects() {
               Google Scholar
             </h1>
             <SubCard>
-              <div className='flex flex-col text-md text-gray-800 font-medium dark:text-gray-200 text-left'>
+              <div className='flex flex-col text-md text-blue-700 dark:text-blue-400 font-medium text-left'>
                 {scholarEntries.map((entry, index) => (
                   <a className='m-1' href={entry.link} target='_blank' rel="noopener noreferrer" key={index}>
-                    <FontAwesomeIcon icon={faNewspaper} className='mx-2' />{entry.title}
+                    <FontAwesomeIcon icon={faNewspaper} className='mx-2 text-gray-800 dark:text-gray-200' />{entry.title}
                   </a>))}
               </div>
             </SubCard>
