@@ -15,7 +15,7 @@ export default async function Projects() {
       <Sidebar />
       <PageContent>
         <Card padding={10}>
-          <div className='w-[55svw]'>
+          <div className='w-[calc(.8*(100svw-272px))]'>
             <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white mb-4">
               Recent Repositories
             </h1>
@@ -30,7 +30,7 @@ export default async function Projects() {
           </div>
         </Card>
         <Card padding={10}>
-          <div className='w-[55svw]'>
+          <div className='w-[calc(.8*(100svw-272px))]'>
             <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white mb-4">
               Google Scholar
             </h1>
