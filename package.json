@@ -20,6 +20,7 @@
     "next": "^15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-github-calendar": "^4.5.7",
     "serpapi": "^2.1.0",
     "usehooks-ts": "^3.1.1"
   },
