@@ -1,5 +1,6 @@
 import { faBook, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
 import { Card, SubCard } from '../_components/card';
 import { GithubCommitCalendar } from '../_components/githubCalendar';
 import { PageContent } from '../_components/pageContent';
@@ -12,30 +13,43 @@ export default async function Projects() {
     <>
       <Sidebar />
       <PageContent>
-        <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white my-4">
-          Pages I&apos;ve Contributed To
-          </h2>
-        </div>
-        <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white mb-4">
-          Services I&apos;ve Helped Build
-          </h2>
-        </div>
-        <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white mb-4">
-          Papers I&apos;ve Written
-          </h2>
-        </div>
-        <div className='w-[calc(.85*(100svw-272px))]'>
-          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
-          Recent Personal Projects
-          </h2>
+        <div className='w-[calc(.85*(100svw-272px))] flex inline-flex flex-wrap'>
+          <ProjectCard
+            title="Vivek Yanamadula"
+            description="I am a fullstack software engineer and tech enthusiast. I love to work on open source projects and contribute to the community."
+            imagePath="/static/me.jpg"
+            link="" />
+          <ProjectCard
+            title="Vivek Yanamadula"
+            description="I am a fullstack software engineer and tech enthusiast. I love to work on open source projects and contribute to the community."
+            imagePath="/static/me.jpg"
+            link="" />
+          <ProjectCard
+            title="Vivek Yanamadula"
+            description="I am a fullstack software engineer and tech enthusiast. I love to work on open source projects and contribute to the community."
+            imagePath="/static/me.jpg"
+            link="" />
         </div>
         <GithubCard />
         <ScholarCard />
       </PageContent>
     </>
+  );
+}
+
+function ProjectCard({title, description, imagePath, link}: {title: string, description: string, imagePath: string, link: string}) {
+  return (
+    <div className='w-1/2'>
+      <Card padding="p-10 m-4">
+        <Image src={imagePath} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" width={100} height={100}/>
+        <a href={link} target='_blank' rel="noopener noreferrer" className="text-lg text-center font-bold text-gray-800 dark:text-white pb-4 hover:underline">
+          {title}
+        </a>
+        <p className="text-gray-800 dark:text-gray-200 mb-4">
+          {description}
+        </p>
+      </Card>
+    </div>
   );
 }
 
