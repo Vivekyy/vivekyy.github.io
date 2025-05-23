@@ -1,6 +1,7 @@
 import { faBook, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 import { Card, SubCard } from '../_components/card';
 import { GithubCommitCalendar } from '../_components/githubCalendar';
 import { PageContent } from '../_components/pageContent';
@@ -10,19 +11,40 @@ import { getReposByUser } from '../_utils/githubClient';
 import { getScholarResultsByAuthor } from '../_utils/googleScholarClient';
 
 export default async function Projects() {
+  const projects1 = [];
+  const projects2 = [];
+  for (let i = 0; i < projects.data.length; i++) {
+    if (i % 2 === 0) {
+      projects1.push(projects.data[i]);
+    } else {
+      projects2.push(projects.data[i]);
+    }
+  }
   return (
     <>
       <Sidebar />
       <PageContent>
-        <div className='w-[calc(.85*(100svw-272px))] flex inline-flex flex-wrap'>
-          {projects.data.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              link={project.link} />
-          ))}
+        <div className='flex inline-flex'>
+          <div className='w-[calc(.5*.85*(100svw-272px))] flex inline-flex flex-wrap h-min'>
+            {projects1.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                link={project.link} />
+            ))}
+          </div>
+          <div className='w-[calc(.5*.85*(100svw-272px))] flex inline-flex flex-wrap h-min'>
+            {projects2.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                link={project.link} />
+            ))}
+          </div>
         </div>
         <GithubCard />
         <ScholarCard />
@@ -33,7 +55,7 @@ export default async function Projects() {
 
 function ProjectCard({title, description, image, link}: {title: string, description: string, image: string, link?: string}) {
   return (
-    <div className='w-1/2'>
+    <div className='w-full'>
       <Card padding="p-10">
         <div className={`relative h-48 w-full mb-4 ${link && 'hover:h-60 transition-all duration-300 ease-in-out'}`}>
           <a href={link} target='_blank' rel="noopener noreferrer">
@@ -45,8 +67,10 @@ function ProjectCard({title, description, image, link}: {title: string, descript
             {title}
           </p>
         </a>
-        <p className="text-gray-800 dark:text-gray-200 mb-4">
-          {description}
+        <p className="prose leading-none text-gray-800 dark:text-gray-200">
+          <ReactMarkdown>
+            {description}
+          </ReactMarkdown>
         </p>
       </Card>
     </div>

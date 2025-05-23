@@ -2,24 +2,24 @@
   "data": [
     {
       "title": "AWS Builder Profile",
-      "description": "Description of Project 1",
+      "description": "Contributed to the AWS Builder Profile, a marketing tool for AWS to store and maintain customer data of AWS users -\n - Led development of LLM based moderation of profile fields and community honor badges \n - Used Typescript, React, and AWS",
       "image": "/static/builder_profile.png",
       "link": "https://aws.amazon.com/"
     },
     {
       "title": "AWS Pulse",
-      "description": "Description of Project 2",
+      "description": "Contributed to AWS Pulse, Amazon's company-wide internal survey and feedback tool \n - Led development of site-site accessibility improvements \n - Used Typescript, React, and AWS",
       "image": "/static/aws.png"
     },
     {
       "title": "Bifrost",
-      "description": "Description of Project 3",
+      "description": "Developed an approximate quantum transpiler for variational quantum algorithms \n - Presented initial findings at APS March Meeting 2024 \n - Submitted technical paper to IEEE QCE 2025 \n - Used Python, Qiskit, and TorchQuantum",
       "image": "/static/transpiler.avif",
       "link": "https://meetings.aps.org/Meeting/MAR24/Session/W51.8"
     },
     {
       "title": "IVM",
-      "description": "Description of Project 3",
+      "description": "Worked on IVM, a dataset for tracking relationships between government initiatives in the Department of Veterans Affairs \n - Developed a recommender system to provide users suggested related initiatives when they are adding new initiatives to the IVM dataset \n - Used Python and PyTorch",
       "image": "/static/IVM.png",
       "link": "https://github.com/Vivekyy/IVM"
     }
