@@ -1,0 +1,27 @@
+{
+  "data": [
+    {
+      "title": "AWS Builder Profile",
+      "description": "Description of Project 1",
+      "image": "/static/builder_profile.png",
+      "link": "https://aws.amazon.com/"
+    },
+    {
+      "title": "AWS Pulse",
+      "description": "Description of Project 2",
+      "image": "/static/aws.png"
+    },
+    {
+      "title": "Bifrost",
+      "description": "Description of Project 3",
+      "image": "/static/transpiler.avif",
+      "link": "https://meetings.aps.org/Meeting/MAR24/Session/W51.8"
+    },
+    {
+      "title": "IVM",
+      "description": "Description of Project 3",
+      "image": "/static/IVM.png",
+      "link": "https://github.com/Vivekyy/IVM"
+    }
+  ]
+}

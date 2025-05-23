@@ -5,6 +5,7 @@ import { Card, SubCard } from '../_components/card';
 import { GithubCommitCalendar } from '../_components/githubCalendar';
 import { PageContent } from '../_components/pageContent';
 import { Sidebar } from '../_components/sidebar';
+import projects from '../_data/projects.json';
 import { getReposByUser } from '../_utils/githubClient';
 import { getScholarResultsByAuthor } from '../_utils/googleScholarClient';
 
@@ -14,21 +15,14 @@ export default async function Projects() {
       <Sidebar />
       <PageContent>
         <div className='w-[calc(.85*(100svw-272px))] flex inline-flex flex-wrap'>
-          <ProjectCard
-            title="Vivek Yanamadula"
-            description="I am a fullstack software engineer and tech enthusiast. I love to work on open source projects and contribute to the community."
-            imagePath="/static/me.jpg"
-            link="" />
-          <ProjectCard
-            title="Vivek Yanamadula"
-            description="I am a fullstack software engineer and tech enthusiast. I love to work on open source projects and contribute to the community."
-            imagePath="/static/me.jpg"
-            link="" />
-          <ProjectCard
-            title="Vivek Yanamadula"
-            description="I am a fullstack software engineer and tech enthusiast. I love to work on open source projects and contribute to the community."
-            imagePath="/static/me.jpg"
-            link="" />
+          {projects.data.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+              link={project.link} />
+          ))}
         </div>
         <GithubCard />
         <ScholarCard />
@@ -37,13 +31,19 @@ export default async function Projects() {
   );
 }
 
-function ProjectCard({title, description, imagePath, link}: {title: string, description: string, imagePath: string, link: string}) {
+function ProjectCard({title, description, image, link}: {title: string, description: string, image: string, link?: string}) {
   return (
     <div className='w-1/2'>
-      <Card padding="p-10 m-4">
-        <Image src={imagePath} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" width={100} height={100}/>
-        <a href={link} target='_blank' rel="noopener noreferrer" className="text-lg text-center font-bold text-gray-800 dark:text-white pb-4 hover:underline">
-          {title}
+      <Card padding="p-10">
+        <div className={`relative h-48 w-full mb-4 ${link && 'hover:h-60 transition-all duration-300 ease-in-out'}`}>
+          <a href={link} target='_blank' rel="noopener noreferrer">
+            <Image src={image} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" fill={true}/>
+          </a>
+        </div>
+        <a href={link} target='_blank' rel="noopener noreferrer">
+          <p className={`text-lg text-center font-bold text-gray-800 dark:text-white pb-4 ${link && 'hover:underline'}`}>
+            {title}
+          </p>
         </a>
         <p className="text-gray-800 dark:text-gray-200 mb-4">
           {description}
@@ -59,8 +59,10 @@ async function GithubCard() {
   return (
     <Card padding="p-10">
       <div className='w-[calc(.8*(100svw-272px))]'>
-        <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6">
+        <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6 hover:underline">
+          <a href="https://github.com/Vivekyy" target="_blank" rel="noopener noreferrer">
               Github
+          </a>
         </h1>
         <SubCard>
           <GithubCommitCalendar />
@@ -85,8 +87,10 @@ async function ScholarCard() {
   return (
     <Card padding="p-10">
       <div className='w-[calc(.8*(100svw-272px))]'>
-        <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6">
+        <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6 hover:underline">
+          <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C33&q=Vivek+Yanamadula&btnG=" target="_blank" rel="noopener noreferrer">
               Google Scholar
+          </a>
         </h1>
         <SubCard>
           <div className='flex flex-col text-md text-blue-700 dark:text-blue-400 font-medium text-left'>
