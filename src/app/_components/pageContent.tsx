@@ -1,6 +1,6 @@
 import React from 'react';
 
-export async function PageContent({ children }: { children: React.ReactNode }) {
+export function PageContent({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col bg-gray-300 dark:bg-gray-700 items-center justify-center w-full h-max">
       {children}

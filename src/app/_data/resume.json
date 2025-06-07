@@ -1,0 +1,32 @@
+{
+  "education": [
+    {
+      "title": "Columbia University",
+      "description": "* Masters of Science in Computer Science, Artificial Intelligence Track - GPA: 3.8 (2024)\n * Bachelor of Arts in Mathematics - GPA: 3.979 (2023)\n     * Teaching Assistant for Artificial Intelligence (2022-2024) & Computer Science Theory (2021) \n     * Cum Laude, Dean's List (all eligible semesters), Ralph Mabie Scholarship (2022, 2023) \n"
+    }
+  ],
+  "work": [
+    {
+      "title": "Amazon Web Services",
+      "description": "* Software Development Engineer - AWS Marketing, Privacy and Identity Experience Team (2024-Present)\n * Software Development Engineer Intern - AWS Worldwide Public Sector, Innovation Engineering Team (2022, 2023)"
+    },
+    {
+      "title": "Columbia University",
+      "description": "* Teaching Assistant - Artificial Intelligence (2022-2024) & Computer Science Theory (2021)"
+    },
+    {
+      "title": "Inspirit AI",
+      "description": "* Instructor & Guest Speaker - AI for High School Students (2021)\n"
+    },
+    {
+      "title": "U.S. Dept of Veterans Affairs",
+      "description": "* Software Engineering Intern - IVM Dataset Project (2020)"
+    }
+  ],
+  "research": [
+    {
+      "title": "Columbia Software Systems Lab",
+      "description": "* Research Assistant - Quantum Computing (2023 - Present)\n * Research presented at APS March Meeting 2024\n * Paper submitted for publication in IEEE Quantum Computing and Engineering 2025"
+    }
+  ]
+}

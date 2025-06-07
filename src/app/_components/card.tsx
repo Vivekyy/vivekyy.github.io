@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function Card({ children, padding }: { children: React.ReactNode, padding?: string }) {
+export function Card({ children, padding, centering = true }: { children: React.ReactNode, padding?: string, centering?: boolean }) {
   return (
-    <div className={`flex flex-col items-center justify-center bg-gray-200 dark:bg-gray-800 rounded-lg shadow-md ${padding || 'p-20'} m-5`}>
+    <div className={`flex flex-col ${centering && 'items-center justify-center'} bg-gray-200 dark:bg-gray-800 rounded-lg shadow-md ${padding || 'p-20'} m-5`}>
       {children}
     </div>
   );

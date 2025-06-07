@@ -2,7 +2,7 @@
   "data": [
     {
       "title": "AWS Builder Profile",
-      "description": "Contributed to the AWS Builder Profile, a marketing tool for AWS to store and maintain customer data of AWS users -\n - Led development of LLM based moderation of profile fields and community honor badges \n - Used Typescript, React, and AWS",
+      "description": "Contributed to the AWS Builder Profile, a marketing tool for AWS to store and maintain customer data of AWS users \n - Led development of LLM based moderation of profile fields and community honor badges \n - Used Typescript, React, and AWS",
       "image": "/static/builder_profile.png",
       "link": "https://aws.amazon.com/"
     },

@@ -16,6 +16,8 @@ export function Navbar() {
           <div>
             <MenuButton text="Home" route="/" />
             <span className='px-2 text-gray-500 dark:text-white'>|</span>
+            <MenuButton text="Resume" route="/resume" />
+            <span className='px-2 text-gray-500 dark:text-white'>|</span>
             <MenuButton text="Projects" route="/projects" />
             <span className='px-2 text-gray-500 dark:text-white'>|</span>
             <MenuButton text="Fun" route="/hobbies" />
