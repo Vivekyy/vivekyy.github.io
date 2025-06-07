@@ -24,7 +24,7 @@ export default async function Projects() {
     <>
       <Sidebar />
       <PageContent>
-        <h1 className='text-4xl font-bold m-4 mt-10 text-gray-400 dark:text-gray-500'>Stuff I&apos;ve done</h1>
+        <h1 className='text-4xl font-bold m-4 mt-10 text-gray-700 dark:text-gray-200'>Stuff I&apos;ve done</h1>
         <div className='flex inline-flex'>
           <div className='w-[calc(.5*.85*(100svw-272px))] flex inline-flex flex-wrap h-min'>
             {projects1.map((project, index) => (
@@ -47,7 +47,7 @@ export default async function Projects() {
             ))}
           </div>
         </div>
-        <h1 className='text-4xl font-bold m-4 mt-10 text-gray-400 dark:text-gray-500'>Digital Footprint</h1>
+        <h1 className='text-4xl font-bold m-4 mt-10 text-gray-700 dark:text-gray-200'>Digital Footprint</h1>
         <GithubCard />
         <ScholarCard />
       </PageContent>
