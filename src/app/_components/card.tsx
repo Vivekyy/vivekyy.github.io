@@ -8,9 +8,9 @@ export function Card({ children, padding, centering = true }: { children: React.
   );
 }
 
-export function SubCard({ children }: { children: React.ReactNode }) {
+export function SubCard({ children, padding }: { children: React.ReactNode, padding?: string }) {
   return (
-    <div className="flex flex-col items-left justify-center bg-gray-300 dark:bg-gray-600 rounded-lg shadow-md p-5">
+    <div className={`flex flex-col items-left justify-center bg-gray-300 dark:bg-gray-600 rounded-lg shadow-md ${padding || 'p-5'}`}>
       {children}
     </div>
   );

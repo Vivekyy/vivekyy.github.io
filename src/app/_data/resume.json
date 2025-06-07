@@ -2,7 +2,7 @@
   "education": [
     {
       "title": "Columbia University",
-      "description": "* Masters of Science in Computer Science, Artificial Intelligence Track - GPA: 3.8 (2024)\n * Bachelor of Arts in Mathematics - GPA: 3.979 (2023)\n     * Teaching Assistant for Artificial Intelligence (2022-2024) & Computer Science Theory (2021) \n     * Cum Laude, Dean's List (all eligible semesters), Ralph Mabie Scholarship (2022, 2023) \n"
+      "description": "* M.S. in Computer Science, Artificial Intelligence Track - GPA: 3.8 (2024)\n * B.A. in Mathematics - GPA: 3.979 (2023)\n     * Teaching Assistant for Artificial Intelligence (2022-2024) & Computer Science Theory (2021) \n     * Cum Laude, Dean's List (all eligible semesters), Ralph Mabie Scholarship (2022, 2023) \n"
     }
   ],
   "work": [
@@ -27,6 +27,88 @@
     {
       "title": "Columbia Software Systems Lab",
       "description": "* Research Assistant - Quantum Computing (2023 - Present)\n * Research presented at APS March Meeting 2024\n * Paper submitted for publication in IEEE Quantum Computing and Engineering 2025"
+    }
+  ],
+  "languages": [
+    {
+      "description": "* English, Spanish, German, Hindi, Telugu"
+    }
+  ],
+  "skills": [
+    {
+      "title": "AWS",
+      "category": "Backend",
+      "proficiency": 4
+    },
+    {
+      "title": "Python",
+      "category": "Backend",
+      "proficiency": 5
+    },
+    {
+      "title": "Typescript",
+      "category": "Backend",
+      "proficiency": 4
+    },
+    {
+      "title": "C",
+      "category": "Backend",
+      "proficiency": 4
+    },
+    {
+      "title": "C++",
+      "category": "Backend",
+      "proficiency": 3
+    },
+    {
+      "title": "Java",
+      "category": "Backend",
+      "proficiency": 3
+    },
+    {
+      "title": "React",
+      "category": "Frontend",
+      "proficiency": 4
+    },
+    {
+      "title": "CSS",
+      "category": "Frontend",
+      "proficiency": 4
+    },
+    {
+      "title": "Git",
+      "category": "Tools",
+      "proficiency": 5
+    },
+    {
+      "title": "Vim",
+      "category": "Tools",
+      "proficiency": 4
+    },
+    {
+      "title": "IDA Pro",
+      "category": "Tools",
+      "proficiency": 3
+    },
+    {
+      "title": "Qiskit",
+      "category": "Libraries",
+      "proficiency": 5
+    },
+    {
+      "title": "PyTorch",
+      "category": "Libraries",
+      "proficiency": 4
+    },
+    {
+      "title": "Pennylane",
+      "category": "Libraries",
+      "proficiency": 4
+    },
+    {
+      "title": "TorchQuantum",
+      "category": "Libraries",
+      "proficiency": 4
     }
   ]
 }
