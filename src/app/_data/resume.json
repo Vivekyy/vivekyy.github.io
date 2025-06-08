@@ -109,6 +109,31 @@
       "title": "TorchQuantum",
       "category": "Libraries",
       "proficiency": 4
+    },
+    {
+      "title": "Tailwind",
+      "category": "Frontend",
+      "proficiency": 4
+    },
+    {
+      "title": "Next.js",
+      "category": "Frontend",
+      "proficiency": 3
+    },
+    {
+      "title": "HTML",
+      "category": "Frontend",
+      "proficiency": 5
+    },
+    {
+      "title": "GraphQL",
+      "category": "Backend",
+      "proficiency": 4
+    },
+    {
+      "title": "SQL",
+      "category": "Backend",
+      "proficiency": 4
     }
   ]
 }

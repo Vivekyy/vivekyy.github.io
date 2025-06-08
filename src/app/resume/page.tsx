@@ -46,14 +46,37 @@ function Skills() {
         </button>))}
     </div>
     <SubCard padding="p-5 w-full">
-      <div className='flex flex-col ml-2 w-full'>
+      <div className='flex flex-col w-full items-center font-medium dark:text-gray-200 text-gray-800'>
+        Proficiency Level
         {filterSkills(resume.skills, skillsSelected).map((skill, index) => (
-          <div key={index} className='flex flex-col mt-2 mb-2'>
-            <h3 className='text-lg font-semibold'>{skill.title}</h3>
-          </div>))}
+          <SkillsSlider key={index} skill={skill} skillsCategories={skillsCategories} />))}
       </div>
     </SubCard>
   </Card>);
+}
+
+function SkillsSlider({skill, skillsCategories}: {skill: any, skillsCategories: string[]}) {
+  const colors = [
+    'bg-green-300 dark:bg-green-600',
+    'bg-red-300 dark:bg-red-600',
+    'bg-orange-300 dark:bg-orange-600',
+    'bg-blue-300 dark:bg-blue-600',
+    'bg-purple-300 dark:bg-purple-600',
+    'bg-yellow-300 dark:bg-yellow-600',
+  ];
+  const colorMap = skillsCategories.reduce((map, key, index) => {
+    map.set(key, colors[index]);
+    return map;
+  }, new Map<string, string>());
+
+  return (
+    <div className='h-10 w-full mt-4 font-semibold dark:text-gray-900 text-gray-800'>
+      <div className={'rounded-md w-full bg-gray-500/50 dark:bg-gray-900/50 h-full p-1'}>
+        <div className={`w-${skill.proficiency}/5 rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4`}>
+          {skill.title}
+        </div>
+      </div>
+    </div>);
 }
 
 function filterSkills(skills: any[], selected: string) {
