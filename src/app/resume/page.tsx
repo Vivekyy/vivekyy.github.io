@@ -79,10 +79,11 @@ function Skills() {
 }
 
 function SkillsSlider({skill, colorMap}: {skill: Skill, colorMap: Map<string, string>}) {
+  const proficiencyWidths = [ 'w-0', 'w-1/5', 'w-2/5', 'w-3/5', 'w-4/5', 'w-full' ];
   return (
     <div className='h-10 w-full mt-4 font-semibold dark:text-gray-900 text-gray-800'>
       <div className={'rounded-md w-full bg-gray-500/50 dark:bg-gray-900/50 h-full p-1'}>
-        <div className={`w-${skill.proficiency.toString()}/5 rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4`}>
+        <div className={`${proficiencyWidths[skill.proficiency]} rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4`}>
           {skill.title}
         </div>
       </div>
