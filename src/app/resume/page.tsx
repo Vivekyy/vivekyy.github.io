@@ -34,6 +34,19 @@ function Skills() {
   const [ skillsSelected, setSkillsSelected ] = useState<string>('All');
   const skillsCategories = [ 'All', ...new Set(resume.skills.map(skill => skill.category)) ];
 
+  const colors = [
+    'bg-green-300 dark:bg-green-600',
+    'bg-red-300 dark:bg-red-600',
+    'bg-orange-300 dark:bg-orange-600',
+    'bg-blue-300 dark:bg-blue-600',
+    'bg-purple-300 dark:bg-purple-600',
+    'bg-yellow-300 dark:bg-yellow-600',
+  ];
+  const colorMap = skillsCategories.reduce((map, key, index) => {
+    map.set(key, colors[index]);
+    return map;
+  }, new Map<string, string>());
+
   return (<Card padding="p-10 pt-8 pb-6 w-9/10">
     <div className='flex inline-flex mb-4'>
       {skillsCategories.map((category, index) => (
@@ -49,26 +62,13 @@ function Skills() {
       <div className='flex flex-col w-full items-center font-medium dark:text-gray-200 text-gray-800'>
         Proficiency Level
         {filterSkills(resume.skills, skillsSelected).map((skill, index) => (
-          <SkillsSlider key={index} skill={skill} skillsCategories={skillsCategories} />))}
+          <SkillsSlider key={index} skill={skill} colorMap={colorMap} />))}
       </div>
     </SubCard>
   </Card>);
 }
 
-function SkillsSlider({skill, skillsCategories}: {skill: any, skillsCategories: string[]}) {
-  const colors = [
-    'bg-green-300 dark:bg-green-600',
-    'bg-red-300 dark:bg-red-600',
-    'bg-orange-300 dark:bg-orange-600',
-    'bg-blue-300 dark:bg-blue-600',
-    'bg-purple-300 dark:bg-purple-600',
-    'bg-yellow-300 dark:bg-yellow-600',
-  ];
-  const colorMap = skillsCategories.reduce((map, key, index) => {
-    map.set(key, colors[index]);
-    return map;
-  }, new Map<string, string>());
-
+function SkillsSlider({skill, colorMap}: {skill: any, colorMap: Map<string, string>}) {
   return (
     <div className='h-10 w-full mt-4 font-semibold dark:text-gray-900 text-gray-800'>
       <div className={'rounded-md w-full bg-gray-500/50 dark:bg-gray-900/50 h-full p-1'}>
