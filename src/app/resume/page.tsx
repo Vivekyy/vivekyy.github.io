@@ -42,15 +42,16 @@ export default function Resume() {
 
 function Skills() {
   const [ skillsSelected, setSkillsSelected ] = useState<string>('All');
-  const skillsCategories = [ 'All', ...new Set(resume.skills.map(skill => skill.category)) ];
+  const skillsCategories = [ 'All', ...new Set(resume.skills.map(skill => skill.category).sort()) ];
 
   const colors = [
-    'bg-green-300 dark:bg-green-600',
-    'bg-red-300 dark:bg-red-600',
+    '',
+    'bg-emerald-300 dark:bg-emerald-600',
     'bg-orange-300 dark:bg-orange-600',
     'bg-blue-300 dark:bg-blue-600',
-    'bg-purple-300 dark:bg-purple-600',
     'bg-yellow-300 dark:bg-yellow-600',
+    'bg-purple-300 dark:bg-purple-600',
+    'bg-red-300 dark:bg-red-600',
   ];
   const colorMap = skillsCategories.reduce((map, key, index) => {
     map.set(key, colors[index]);
@@ -93,7 +94,10 @@ function SkillsSlider({skill, colorMap}: {skill: Skill, colorMap: Map<string, st
 function filterSkills(skills: Skill[], selected: string) {
   function skillsComparator(a: Skill, b: Skill) {
     if (a.proficiency === b.proficiency) {
-      return a.title.localeCompare(b.title);
+      if (a.category === b.category) {
+        return a.title.localeCompare(b.title);
+      }
+      return a.category.localeCompare(b.category);
     }
     return b.proficiency - a.proficiency;
   }

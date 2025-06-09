@@ -131,8 +131,48 @@
       "proficiency": 4
     },
     {
-      "title": "SQL",
-      "category": "Backend",
+      "title": "PostgreSQL",
+      "category": "Databases",
+      "proficiency": 4
+    },
+    {
+      "title": "DyamoDB",
+      "category": "Databases",
+      "proficiency": 4
+    },
+    {
+      "title": "Insomnia",
+      "category": "Tools",
+      "proficiency": 5
+    },
+    {
+      "title": "Figma",
+      "category": "Tools",
+      "proficiency": 4
+    },
+    {
+      "title": "Bash",
+      "category": "Tools",
+      "proficiency": 5
+    },
+    {
+      "title": "Linux",
+      "category": "Tools",
+      "proficiency": 5
+    },
+    {
+      "title": "Jest",
+      "category": "Libraries",
+      "proficiency": 5
+    },
+    {
+      "title": "Pandas",
+      "category": "Libraries",
+      "proficiency": 4
+    },
+    {
+      "title": "Matplotlib",
+      "category": "Libraries",
       "proficiency": 4
     }
   ]
