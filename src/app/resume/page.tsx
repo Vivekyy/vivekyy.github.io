@@ -9,8 +9,18 @@ import { PageContent } from '../_components/pageContent';
 import { Sidebar } from '../_components/sidebar';
 import resume from '../_data/resume.json';
 
+interface Skill {
+  title: string;
+  category: string;
+  proficiency: number;
+}
+interface Content {
+  title?: string;
+  description: string;
+}
+
 export default function Resume() {
-  const [ onSkills, setOnSkills ] = useState(true);
+  const [ onSkills, setOnSkills ] = useState(false);
   return (
     <>
       <Sidebar />
@@ -68,19 +78,19 @@ function Skills() {
   </Card>);
 }
 
-function SkillsSlider({skill, colorMap}: {skill: any, colorMap: Map<string, string>}) {
+function SkillsSlider({skill, colorMap}: {skill: Skill, colorMap: Map<string, string>}) {
   return (
     <div className='h-10 w-full mt-4 font-semibold dark:text-gray-900 text-gray-800'>
       <div className={'rounded-md w-full bg-gray-500/50 dark:bg-gray-900/50 h-full p-1'}>
-        <div className={`w-${skill.proficiency}/5 rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4`}>
+        <div className={`w-${skill.proficiency.toString()}/5 rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4`}>
           {skill.title}
         </div>
       </div>
     </div>);
 }
 
-function filterSkills(skills: any[], selected: string) {
-  function skillsComparator(a: any, b: any) {
+function filterSkills(skills: Skill[], selected: string) {
+  function skillsComparator(a: Skill, b: Skill) {
     if (a.proficiency === b.proficiency) {
       return a.title.localeCompare(b.title);
     }
@@ -117,7 +127,7 @@ function Background() {
   );
 }
 
-function ResumeCard({title, content, icon}: {title: string, content: any[], icon: React.ReactNode}) {
+function ResumeCard({title, content, icon}: {title: string, content: Content[], icon: React.ReactNode}) {
   return (
     <div className='w-full flex inline-flex text-gray-800 dark:text-gray-200 justify-center'>
       <div className='pt-12 pl-8 pr-4 text-3xl'>
