@@ -1,8 +1,6 @@
 import { faBook, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
-import { Card, SubCard } from '../_components/card';
+import { Card, ImageCard, SubCard } from '../_components/card';
 import { GithubCommitCalendar } from '../_components/githubCalendar';
 import { PageContent } from '../_components/pageContent';
 import { Sidebar } from '../_components/sidebar';
@@ -28,7 +26,7 @@ export default async function Projects() {
         <div className='flex inline-flex'>
           <div className='w-[calc(.5*.85*(100svw-272px))] flex inline-flex flex-wrap h-min'>
             {projects1.map((project, index) => (
-              <ProjectCard
+              <ImageCard
                 key={index}
                 title={project.title}
                 description={project.description}
@@ -38,7 +36,7 @@ export default async function Projects() {
           </div>
           <div className='w-[calc(.5*.85*(100svw-272px))] flex inline-flex flex-wrap h-min'>
             {projects2.map((project, index) => (
-              <ProjectCard
+              <ImageCard
                 key={index}
                 title={project.title}
                 description={project.description}
@@ -52,30 +50,6 @@ export default async function Projects() {
         <ScholarCard />
       </PageContent>
     </>
-  );
-}
-
-function ProjectCard({title, description, image, link}: {title: string, description: string, image: string, link?: string}) {
-  return (
-    <div className='w-full'>
-      <Card padding="p-10">
-        <div className={`relative h-48 w-full mb-4 shadow-md ${link && 'hover:h-60 transition-all duration-300 ease-in-out'}`}>
-          <a href={link} target='_blank' rel="noopener noreferrer">
-            <Image src={image} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" fill={true}/>
-          </a>
-        </div>
-        <a href={link} target='_blank' rel="noopener noreferrer">
-          <p className={`text-lg text-center font-bold text-gray-800 dark:text-white pb-4 ${link && 'hover:underline'}`}>
-            {title}
-          </p>
-        </a>
-        <div className="prose leading-none text-gray-800 dark:text-gray-200">
-          <ReactMarkdown>
-            {description}
-          </ReactMarkdown>
-        </div>
-      </Card>
-    </div>
   );
 }
 
@@ -114,7 +88,7 @@ async function ScholarCard() {
     <Card padding="p-10">
       <div className='w-[calc(.8*(100svw-272px))]'>
         <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6 hover:underline">
-          <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C33&q=Vivek+Yanamadula&btnG=" target="_blank" rel="noopener noreferrer">
+          <a href="https://scholar.google.com/citations?user=hZSsEc0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
               Google Scholar
           </a>
         </h1>

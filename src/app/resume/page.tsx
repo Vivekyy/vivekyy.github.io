@@ -20,17 +20,17 @@ interface Content {
 }
 
 export default function Resume() {
-  const [ onSkills, setOnSkills ] = useState(false);
+  const [ onSkills, setOnSkills ] = useState(true);
   return (
     <>
       <Sidebar />
       <PageContent>
         <div className="flex inline-flex text-4xl font-bold m-4 mt-10 text-gray-400 dark:text-gray-500">
-          <div className={onSkills ? 'text-gray-700 dark:text-gray-200' : 'hover:text-gray-500 dark:hover:text-gray-400'} onClick={() => setOnSkills(true)}>
+          <div className={onSkills ? 'text-gray-700 dark:text-gray-200 underline' : 'hover:text-gray-500 dark:hover:text-gray-400'} onClick={() => setOnSkills(true)}>
             Skills
           </div>
           <div className='pr-4 pl-4'>|</div>
-          <div className={onSkills ? 'hover:text-gray-500 dark:hover:text-gray-400' : 'text-gray-700 dark:text-gray-200'} onClick={() => setOnSkills(false)}>
+          <div className={onSkills ? 'hover:text-gray-500 dark:hover:text-gray-400' : 'text-gray-700 dark:text-gray-200 underline'} onClick={() => setOnSkills(false)}>
             Background
           </div>
         </div>

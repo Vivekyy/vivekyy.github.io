@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "title": "PC Part Picker",
+      "description": "My custom PC build, which I use for gaming and development",
+      "image": "/static/pc.jpg",
+      "link": "https://pcpartpicker.com/b/N48rxr"
+    },
+    {
+      "title": "Substack",
+      "description": "A personal blog where I mostly talk about growing bonsai",
+      "image": "/static/substack.png",
+      "link": "https://bonsaibeginner.substack.com/?r=1s95p4&utm_campaign=pub-share-checklist"
+    }
+  ]
+}
