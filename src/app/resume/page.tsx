@@ -162,7 +162,7 @@ function ResumeFileCard(){
         <FontAwesomeIcon icon={faFilePdf} />
       </div>
       <Card padding="p-10 pt-8 pb-6 w-full" centering={false}>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className='text-blue-700 dark:text-blue-400 hover:underline'>
+        <a href="/static/Vivek_Yanamadula_Resume.pdf" download className='text-blue-700 dark:text-blue-400 hover:underline'>
           Download Full Resume
         </a>
       </Card>
