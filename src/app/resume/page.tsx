@@ -84,8 +84,11 @@ function SkillsSlider({skill, colorMap}: {skill: Skill, colorMap: Map<string, st
   return (
     <div className='h-10 w-full mt-4 font-semibold dark:text-gray-900 text-gray-800'>
       <div className={'rounded-md w-full bg-gray-500/50 dark:bg-gray-900/50 h-full p-1'}>
-        <div className={`${proficiencyWidths[skill.proficiency]} rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4`}>
-          {skill.title}
+        <div className={`${proficiencyWidths[skill.proficiency]} rounded-sm ${colorMap.get(skill.category)} h-full pt-1 pl-4 inline-flex`}>
+          {skill.title.replace(/ /g, '\u00A0')/*Replace space with non-breaking space to prevent line breaks*/}
+          <div className='w-full text-right text-xs pr-2 pt-2'>
+            {skill.proficiency}/5
+          </div>
         </div>
       </div>
     </div>);
