@@ -2,31 +2,47 @@
   "education": [
     {
       "title": "Columbia University",
-      "description": "* M.S. in Computer Science, Artificial Intelligence Track - GPA: 3.8 (2024)\n * B.A. in Mathematics - GPA: 3.979 (2023)\n     * Teaching Assistant for Artificial Intelligence (2022-2024) & Computer Science Theory (2021) \n     * Cum Laude, Dean's List (all eligible semesters), Ralph Mabie Scholarship (2022, 2023) \n"
+      "degrees": [
+        {
+          "title": "M.S. in Computer Science, Artificial Intelligence Track",
+          "description": "GPA: 3.8 (2024)"
+        },
+        {
+          "title": "B.A. in Mathematics, Concentration in Computer Science",
+          "description": "GPA: 3.979 (2023)"
+        }
+      ],
+      "description": "* Cum Laude, Dean's List (all eligible semesters), Ralph Mabie Scholarship (2022, 2023)",
+      "link": "https://www.columbia.edu/"
     }
   ],
   "work": [
     {
       "title": "Amazon Web Services",
-      "description": "* Software Development Engineer - AWS Marketing, Privacy and Identity Experience Team (2024-Present)\n * Software Development Engineer Intern - AWS Worldwide Public Sector, Innovation Engineering Team (2022, 2023)"
+      "description": "* Software Development Engineer - AWS Marketing, Privacy and Identity Experience (2024-Present)\n * Software Development Engineer Intern - AWS Worldwide Public Sector, Innovation Engineering (2022, 2023)",
+      "link": "https://aws.amazon.com/"
     },
     {
       "title": "Columbia University",
-      "description": "* Teaching Assistant - Artificial Intelligence (2022-2024) & Computer Science Theory (2021)"
+      "description": "* Teaching Assistant - Artificial Intelligence (2022-2024) & Computer Science Theory (2021)",
+      "link": "https://www.columbia.edu/"
     },
     {
       "title": "Inspirit AI",
-      "description": "* Instructor & Guest Speaker - AI for High School Students (2021)\n"
+      "description": "* Instructor & Guest Speaker - AI for High School Students (2021)\n",
+      "link": "https://www.inspiritai.com/"
     },
     {
       "title": "U.S. Dept of Veterans Affairs",
-      "description": "* Software Engineering Intern - IVM Dataset Project (2020)"
+      "description": "* Software Engineering Intern - IVM Dataset Project (2020)",
+      "link": "https://www.va.gov/"
     }
   ],
   "research": [
     {
       "title": "Columbia Software Systems Lab",
-      "description": "* Research Assistant - Quantum Computing (2023 - Present)\n * Research presented at APS March Meeting 2024\n * Paper submitted for publication in IEEE Quantum Computing and Engineering 2025"
+      "description": "* Research Assistant - Quantum Computing (2023 - Present)\n     * Research presented at APS March Meeting 2024\n     * Paper submitted for publication in IEEE Quantum Computing and Engineering 2025",
+      "link": "https://systems.cs.columbia.edu/"
     }
   ],
   "languages": [
@@ -108,7 +124,7 @@
     {
       "title": "TorchQuantum",
       "category": "Libraries",
-      "proficiency": 4
+      "proficiency": 5
     },
     {
       "title": "Tailwind",
@@ -174,6 +190,16 @@
       "title": "Matplotlib",
       "category": "Libraries",
       "proficiency": 4
+    },
+    {
+      "title": "Matlab",
+      "category": "Backend",
+      "proficiency": 5
+    },
+    {
+      "title": "Scikit",
+      "category": "Libraries",
+      "proficiency": 5
     }
   ]
 }

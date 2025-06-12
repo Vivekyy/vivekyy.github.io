@@ -2,9 +2,11 @@ import { faBook, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Card, ImageCard, SubCard } from '../_components/card';
 import { GithubCommitCalendar } from '../_components/githubCalendar';
+import { ExternalLink } from '../_components/link';
 import { PageContent } from '../_components/pageContent';
 import { Sidebar } from '../_components/sidebar';
 import projects from '../_data/projects.json';
+import socials from '../_data/socials.json';
 import { getReposByUser } from '../_utils/githubClient';
 import { getScholarResultsByAuthor } from '../_utils/googleScholarClient';
 
@@ -54,15 +56,17 @@ export default async function Projects() {
 }
 
 async function GithubCard() {
-  const repos = await getReposByUser('vivekyy', 3);
+  const { Github } = socials.data;
+  const user = Github.split('/').pop() || '';
+  const repos = await getReposByUser(user, 3);
 
   return (
     <Card padding="p-10">
       <div className='w-[calc(.8*(100svw-272px))]'>
         <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6 hover:underline">
-          <a href="https://github.com/Vivekyy" target="_blank" rel="noopener noreferrer">
+          <ExternalLink href={Github}>
               Github
-          </a>
+          </ExternalLink>
         </h1>
         <SubCard>
           <GithubCommitCalendar />
@@ -71,9 +75,9 @@ async function GithubCard() {
           </h2>
           <div className='flex flex-col text-md text-blue-700 dark:text-blue-400 font-medium text-left'>
             {repos.data.map((repo, index) => (
-              <a className='m-1' href={repo.html_url} target='_blank' rel="noopener noreferrer" key={index}>
+              <ExternalLink className='m-1' href={repo.html_url} key={index}>
                 <FontAwesomeIcon icon={faBook} className='mx-2 text-gray-800 dark:text-gray-200' />{`Vivekyy/${repo.name}`}
-              </a>))}
+              </ExternalLink >))}
           </div>
         </SubCard>
       </div>
@@ -88,16 +92,16 @@ async function ScholarCard() {
     <Card padding="p-10">
       <div className='w-[calc(.8*(100svw-272px))]'>
         <h1 className="text-xl text-center font-bold text-gray-800 dark:text-white pb-6 hover:underline">
-          <a href="https://scholar.google.com/citations?user=hZSsEc0AAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+          <ExternalLink href={socials.data.GoogleScholar}>
               Google Scholar
-          </a>
+          </ExternalLink >
         </h1>
         <SubCard>
           <div className='flex flex-col text-md text-blue-700 dark:text-blue-400 font-medium text-left'>
             {scholarEntries.map((entry, index) => (
-              <a className='m-1' href={entry.link} target='_blank' rel="noopener noreferrer" key={index}>
+              <ExternalLink className='m-1' href={entry.link} key={index}>
                 <FontAwesomeIcon icon={faNewspaper} className='mx-2 text-gray-800 dark:text-gray-200' />{entry.title}
-              </a>))}
+              </ExternalLink>))}
           </div>
         </SubCard>
       </div>

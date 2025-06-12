@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Card, SubCard } from '../_components/card';
+import { ExternalLink } from '../_components/link';
 import { PageContent } from '../_components/pageContent';
 import { Sidebar } from '../_components/sidebar';
 import resume from '../_data/resume.json';
@@ -16,11 +17,15 @@ interface Skill {
 }
 interface Content {
   title?: string;
-  description: string;
+  description?: string;
+  link?: string;
+}
+interface EducationContent extends Content {
+  degrees: { title: string, description: string }[];
 }
 
 export default function Resume() {
-  const [ onSkills, setOnSkills ] = useState(true);
+  const [ onSkills, setOnSkills ] = useState(false);
   return (
     <>
       <Sidebar />
@@ -114,7 +119,7 @@ function filterSkills(skills: Skill[], selected: string) {
 function Background() {
   return (
     <>
-      <ResumeCard
+      <EducationCard
         title="Education"
         content={resume.education}
         icon={<FontAwesomeIcon icon={faUserGraduate} />} />
@@ -138,15 +143,47 @@ function Background() {
 function ResumeCard({title, content, icon}: {title: string, content: Content[], icon: React.ReactNode}) {
   return (
     <div className='w-full flex inline-flex text-gray-800 dark:text-gray-200 justify-center'>
-      <div className='pt-12 pl-8 pr-4 text-3xl'>
+      <SideIcon>
         {icon}
-      </div>
+      </SideIcon>
       <Card padding="p-10 pt-8 pb-6 w-full" centering={false}>
         <h2 className='text-xl font-bold pb-4'>{title}</h2>
         {content.map((item, index) => (
           <div key={index} className='flex flex-col ml-2 w-full'>
-            <h3 className='text-lg font-semibold'>{item.title}</h3>
+            <ExternalLink href={item.link} className={`text-lg font-semibold ${item.link && 'hover:text-blue-600 dark:hover:text-blue-400'}`}>{item.title}</ExternalLink>
             <div className='prose !max-w-none leading-none text-gray-800 dark:text-gray-200'>
+              <ReactMarkdown>
+                {item.description}
+              </ReactMarkdown>
+            </div>
+          </div>))}
+      </Card>
+    </div>
+
+  );
+}
+
+function EducationCard({content, icon}: {title: string, content: EducationContent[], icon: React.ReactNode}) {
+  return (
+    <div className='w-full flex inline-flex text-gray-800 dark:text-gray-200 justify-center'>
+      <SideIcon>
+        {icon}
+      </SideIcon>
+      <Card padding="p-10 pt-8 pb-6 w-full" centering={false}>
+        <h2 className='text-xl font-bold pb-4'>Education</h2>
+        {content.map((item, index) => (
+          <div key={index} className='flex flex-col ml-2 w-full'>
+            <ExternalLink href={item.link} className={`text-lg font-semibold ${item.link && 'hover:text-blue-600 dark:hover:text-blue-400'}`}>{item.title}</ExternalLink>
+            <div className='!max-w-none leading-none text-md text-gray-800 dark:text-gray-200 pl-2'>
+              {item.degrees.map((degree, degreeIndex) => (
+                <div key={degreeIndex} className='pt-3 font-medium'>
+                  {degree.title}
+                  <div className='text-sm pl-2 font-normal'>
+                    {degree.description}
+                  </div>
+                </div>))}
+            </div>
+            <div className='prose !max-w-none font-medium text-gray-800 dark:text-gray-200'>
               <ReactMarkdown>
                 {item.description}
               </ReactMarkdown>
@@ -160,15 +197,23 @@ function ResumeCard({title, content, icon}: {title: string, content: Content[], 
 
 function ResumeFileCard(){
   return (
-    <div className='w-full flex inline-flex text-gray-800 dark:text-gray-200 justify-center'>
-      <div className='pt-12 pl-8 pr-4 text-3xl'>
+    <div className='w-full flex inline-flex text-gray-800 dark:text-gray-400 justify-center'>
+      <SideIcon>
         <FontAwesomeIcon icon={faFilePdf} />
-      </div>
+      </SideIcon>
       <Card padding="p-10 pt-8 pb-6 w-full" centering={false}>
         <a href="/static/Vivek_Yanamadula_Resume.pdf" download className='text-blue-700 dark:text-blue-400 hover:underline'>
           Download Full Resume
         </a>
       </Card>
+    </div>
+  );
+}
+
+function SideIcon({children}: {children: React.ReactNode}) {
+  return (
+    <div className='pt-12 pl-8 pr-4 text-3xl text-gray-900 dark:text-gray-100'>
+      {children}
     </div>
   );
 }

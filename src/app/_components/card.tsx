@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { ExternalLink } from './link';
 
 export function Card({ children, padding, centering = true }: { children: React.ReactNode, padding?: string, centering?: boolean }) {
   return (
@@ -23,15 +24,15 @@ export function ImageCard({title, description, image, link}: {title: string, des
     <div className='w-full'>
       <Card padding="p-10">
         <div className={`relative h-48 w-full mb-4 shadow-md ${link && 'hover:h-60 transition-all duration-300 ease-in-out'}`}>
-          <a href={link} target='_blank' rel="noopener noreferrer">
+          <ExternalLink href={link}>
             <Image src={image} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" fill={true}/>
-          </a>
+          </ExternalLink>
         </div>
-        <a href={link} target='_blank' rel="noopener noreferrer">
+        <ExternalLink href={link}>
           <p className={`text-lg text-center font-bold text-gray-800 dark:text-white pb-4 ${link && 'hover:underline'}`}>
             {title}
           </p>
-        </a>
+        </ExternalLink>
         <div className="prose leading-none text-gray-800 dark:text-gray-200">
           <ReactMarkdown>
             {description}
