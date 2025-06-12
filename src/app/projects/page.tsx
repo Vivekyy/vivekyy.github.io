@@ -69,7 +69,9 @@ async function GithubCard() {
           </ExternalLink>
         </h1>
         <SubCard>
-          <GithubCommitCalendar />
+          <div className='p-2'>
+            <GithubCommitCalendar />
+          </div>
           <h2 className="text-left text-lg text-center font-bold text-gray-800 dark:text-white mb-2">
               Recent Repositories
           </h2>
