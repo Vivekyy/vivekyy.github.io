@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN,
+  auth: process.env.API_TOKEN_GITHUB,
 });
 
 export function getCommitsByRepo(owner: string, repo: string, per_page?: number) {
