@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Vivek Yanamadula',
+  title: 'Vivek\'s Website',
   description: 'Personal website of Vivek Yanamadula',
 };
 
