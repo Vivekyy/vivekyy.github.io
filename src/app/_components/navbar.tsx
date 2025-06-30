@@ -118,7 +118,7 @@ function Dropdown() {
 function DropdownLink({ text, route, onClick }: { text: string; route: string; onClick: () => void }) {
   const inFocus = usePathname() === route;
   return (
-    <Link href={route} onClick={onClick} className={`${inFocus ? 'dark:text-white text-black' : 'text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'} p-2 focus:text-white`}>
+    <Link href={route} onClick={onClick} className={`${inFocus ? 'dark:text-white text-black' : 'text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'} p-2 dark:focus:text-white focus:text-black`}>
       {text}
     </Link>
   );
