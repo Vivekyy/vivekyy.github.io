@@ -3,21 +3,33 @@
 import { useEffect, useState } from 'react';
 
 export function useMobileView(): boolean {
-  return useWindowSize() <= 900;
+  const { width } = useWindowSize();
+  return !!width && width <= 900;
 }
 
-function useWindowSize(): number {
-  const [ width, setWidth ] = useState<number>(window.innerWidth);
+export interface WindowSize {
+  width?: number;
+  height?: number;
+}
 
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
+export function useWindowSize() {
+  const [ windowSize, setWindowSize ] = useState<WindowSize>({
+    width: undefined,
+    height: undefined,
+  });
+
   useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange);
-    return () => {
-      window.removeEventListener('resize', handleWindowSizeChange);
-    };
-  }, []);
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
 
-  return width;
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return windowSize;
 }

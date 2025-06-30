@@ -32,14 +32,12 @@ function DesktopNavbar() {
       <Link href="/" className='absolute left-6 top-4 text-black dark:text-white font-semibold'>Vivek Yanamadula</Link>
       <div className="w-screen mx-auto px-2">
         <div className="relative flex h-14 items-center justify-center">
-          <div>
-            {Pages.map((page, index) => (
-              <>
-                <MenuButton key={page.route} text={page.text} route={page.route} />
-                {index !== (Pages.length-1) && <span className='px-2 text-gray-500 dark:text-white'>|</span>}
-              </>
-            ))}
-          </div>
+          {Pages.map((page, index) => (
+            <div key={index}>
+              <MenuButton key={page.route} text={page.text} route={page.route} />
+              {index !== (Pages.length-1) && <span key={index} className='px-2 text-gray-500 dark:text-white'>|</span>}
+            </div>
+          ))}
         </div>
       </div>
       <div className='absolute right-6 top-2'>
