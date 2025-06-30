@@ -1,7 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import { Socials } from './socials';
+import { useMobileView } from '../_utils/windowSizes';
 
 export function Sidebar() {
+  if( useMobileView() ) {
+    return <></>;
+  }
+
   return (
     <div className="bg-[#c2c6cd] dark:bg-gray-600 p-14">
       <div className='h-1/4'/>

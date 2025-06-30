@@ -5,7 +5,7 @@ import { ExternalLink } from './link';
 
 export function Card({ children, padding, centering = true }: { children: React.ReactNode, padding?: string, centering?: boolean }) {
   return (
-    <div className={`flex flex-col ${centering && 'items-center justify-center'} bg-gray-200 dark:bg-gray-800 rounded-lg shadow-md ${padding || 'p-20'} m-5`}>
+    <div className={`flex flex-col ${centering && 'items-center justify-center'} bg-gray-200 dark:bg-gray-800 rounded-lg shadow-lg ${padding || 'p-20'} m-5`}>
       {children}
     </div>
   );
@@ -22,7 +22,7 @@ export function SubCard({ children, padding }: { children: React.ReactNode, padd
 export function ImageCard({title, description, image, link}: {title: string, description: string, image: string, link?: string}) {
   return (
     <div className='w-full'>
-      <Card padding="p-10">
+      <Card padding="p-5">
         <div className={`relative h-48 w-full mb-4 shadow-md ${link && 'hover:h-60 transition-all duration-300 ease-in-out'}`}>
           <ExternalLink href={link}>
             <Image src={image} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" fill={true}/>
