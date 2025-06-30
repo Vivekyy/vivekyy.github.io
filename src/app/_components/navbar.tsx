@@ -1,26 +1,44 @@
 'use client';
 
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+import { useMobileView } from '../_utils/windowSizes';
+import React from 'react';
+import ClickAwayListener from 'react-click-away-listener';
+
+const Pages = [
+  { text: 'Home', route: '/' },
+  { text: 'Resume', route: '/resume' },
+  { text: 'Projects', route: '/projects' },
+  { text: 'Fun', route: '/hobbies' },
+];
 
 export function Navbar() {
+  if (useMobileView()) {
+    return <MobileNavbar />;
+  }
+  return (
+    <DesktopNavbar />
+  );
+}
+
+function DesktopNavbar() {
   return (
     <nav className="bg-gray-200 dark:bg-gray-800 transition-colors">
       <Link href="/" className='absolute left-6 top-4 text-black dark:text-white font-semibold'>Vivek Yanamadula</Link>
-      <div className="w-screen mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="w-screen mx-auto px-2">
         <div className="relative flex h-14 items-center justify-center">
           <div>
-            <MenuButton text="Home" route="/" />
-            <span className='px-2 text-gray-500 dark:text-white'>|</span>
-            <MenuButton text="Resume" route="/resume" />
-            <span className='px-2 text-gray-500 dark:text-white'>|</span>
-            <MenuButton text="Projects" route="/projects" />
-            <span className='px-2 text-gray-500 dark:text-white'>|</span>
-            <MenuButton text="Fun" route="/hobbies" />
+            {Pages.map((page, index) => (
+              <>
+                <MenuButton key={page.route} text={page.text} route={page.route} />
+                {index !== (Pages.length-1) && <span className='px-2 text-gray-500 dark:text-white'>|</span>}
+              </>
+            ))}
           </div>
         </div>
       </div>
@@ -33,7 +51,25 @@ export function Navbar() {
   );
 }
 
-function MenuButton({text, route}: {text: string; route: string}) {
+function MobileNavbar() {
+  return (
+    <nav className="bg-gray-200 dark:bg-gray-800 transition-colors">
+      <div className='absolute left-6 top-3'>
+        <Dropdown />
+        <span className="px-2"></span>
+        <Link href="/" className='text-black dark:text-white font-semibold'>Vivek Yanamadula</Link>
+      </div>
+      <div className='absolute right-6 top-2'>
+        <ThemeSwitcher />
+        <span className='px-2 text-gray-500 dark:text-white'>|</span>
+        <ContactButton />
+      </div>
+      <div className="w-screen mx-auto px-2 h-14"></div>
+    </nav>
+  );
+}
+
+function MenuButton({ text, route }: { text: string; route: string }) {
   const inFocus = usePathname() === route;
   return (
     <div className="inline-flex items-center justify-center" >
@@ -51,6 +87,41 @@ function ContactButton() {
       Contact Me
       <div className='px-1 inline-flex'></div>
       <FontAwesomeIcon className='text-sm' icon={faEnvelope} />
+    </Link>
+  );
+}
+
+function Dropdown() {
+  const [ hideItems, setHideItems ] = useState(true);
+
+  return (
+    <ClickAwayListener onClickAway={() => setHideItems(true)}>
+      <div className="relative inline-block text-left">
+        <div>
+          <button
+            onClick={() => setHideItems(!hideItems)}
+            className={`${!hideItems ? 'bg-gray-600 text-white' : 'bg-gray-300 dark:bg-gray-900 hover:bg-gray-500 dark:hover:bg-gray-700 hover:text-white'} rounded-md px-3 py-2 text-sm font-medium text-black dark:text-white`}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </button>
+        </div>
+        <div className={`${hideItems && 'hidden'} !z-100 absolute rounded-md bg-white dark:bg-gray-900 shadow-lg mt-1 ml-1`}>
+          <div className="px-2 py-1 flex flex-col">
+            {Pages.map((page) => (
+              <DropdownLink key={page.route} text={page.text} route={page.route} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </ClickAwayListener>
+  );
+}
+
+function DropdownLink({ text, route }: { text: string; route: string }) {
+  const inFocus = usePathname() === route;
+  return (
+    <Link href={route} className={`${inFocus ? 'text-white' : 'text-black dark:text-gray-400 hover:text-white'} p-2 focus:text-white`}>
+      {text}
     </Link>
   );
 }
@@ -89,14 +160,10 @@ function ThemeSwitcher() {
 
   // Hydration fix
   const [ hydrated, setHydrated ] = useState(false);
-
   useEffect(() => {
-    // this forces a rerender
     setHydrated(true);
   }, []);
-
-  if(!hydrated) {
-    // this returns null on first render, so the client and server match
+  if (!hydrated) {
     return null;
   }
 

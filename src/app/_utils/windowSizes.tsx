@@ -3,6 +3,10 @@
 import { useEffect, useState } from 'react';
 
 export function useMobileView(): boolean {
+  return useWindowSize() <= 900;
+}
+
+function useWindowSize(): number {
   const [ width, setWidth ] = useState<number>(window.innerWidth);
 
   function handleWindowSizeChange() {
@@ -15,5 +19,5 @@ export function useMobileView(): boolean {
     };
   }, []);
 
-  return width <= 768;
+  return width;
 }
