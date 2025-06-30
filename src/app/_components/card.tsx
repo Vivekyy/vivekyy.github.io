@@ -23,7 +23,7 @@ export function ImageCard({title, description, image, link}: {title: string, des
   return (
     <div className='w-full'>
       <Card padding="p-5">
-        <div className={`relative h-48 w-full mb-4 shadow-md ${link && 'hover:h-60 transition-all duration-300 ease-in-out'}`}>
+        <div className={'relative h-48 w-full mb-4 shadow-md hover:h-60 transition-all duration-300 ease-in-out'}>
           <ExternalLink href={link}>
             <Image src={image} alt={title} className="w-full h-48 object-cover rounded-lg mb-4" fill={true}/>
           </ExternalLink>
