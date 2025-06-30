@@ -26,6 +26,7 @@ body {
   }
 
   --animate-fadein: fadein 0.5s ease-in-out;
+  --animate-fadein-fast: fadein 0.25s ease-in-out;
 
   @keyframes fadein {
     0% {

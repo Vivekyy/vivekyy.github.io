@@ -103,7 +103,7 @@ function Dropdown() {
             <FontAwesomeIcon icon={faBars} />
           </button>
         </div>
-        <div className={`${hideItems && 'hidden'} !z-100 absolute rounded-md bg-white dark:bg-gray-900 shadow-lg mt-1 ml-1`}>
+        <div className={`${hideItems && 'hidden'} !z-100 absolute animate-fadein-fast rounded-md bg-white dark:bg-gray-900 shadow-lg mt-1 ml-1`}>
           <div className="px-2 py-1 flex flex-col">
             {Pages.map((page) => (
               <DropdownLink key={page.route} text={page.text} route={page.route} onClick={() => setHideItems(true)} />
