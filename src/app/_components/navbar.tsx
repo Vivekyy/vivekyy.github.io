@@ -108,7 +108,7 @@ function Dropdown() {
         <div className={`${hideItems && 'hidden'} !z-100 absolute rounded-md bg-white dark:bg-gray-900 shadow-lg mt-1 ml-1`}>
           <div className="px-2 py-1 flex flex-col">
             {Pages.map((page) => (
-              <DropdownLink key={page.route} text={page.text} route={page.route} />
+              <DropdownLink key={page.route} text={page.text} route={page.route} onClick={() => setHideItems(true)} />
             ))}
           </div>
         </div>
@@ -117,10 +117,10 @@ function Dropdown() {
   );
 }
 
-function DropdownLink({ text, route }: { text: string; route: string }) {
+function DropdownLink({ text, route, onClick }: { text: string; route: string; onClick: () => void }) {
   const inFocus = usePathname() === route;
   return (
-    <Link href={route} className={`${inFocus ? 'text-white' : 'text-black dark:text-gray-400 hover:text-white'} p-2 focus:text-white`}>
+    <Link href={route} onClick={onClick} className={`${inFocus ? 'text-white' : 'text-black dark:text-gray-400 hover:text-white'} p-2 focus:text-white`}>
       {text}
     </Link>
   );
