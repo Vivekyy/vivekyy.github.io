@@ -13,7 +13,7 @@
     },
     {
       "title": "Bifrost",
-      "description": "Developed an approximate quantum transpiler for variational quantum algorithms \n - Presented initial findings at APS March Meeting 2024 \n - Submitted technical paper to IEEE QCE 2025 \n - Used Python, Qiskit, and TorchQuantum",
+      "description": "Developed an approximate quantum transpiler for variational quantum algorithms \n - Paper accepted for publication in IEEE Quatum Computing and Engineering 2025 \n - Presented initial findings at APS March Meeting 2024 \n - Used Python, Qiskit, and TorchQuantum",
       "image": "/static/transpiler.avif",
       "link": "https://meetings.aps.org/Meeting/MAR24/Session/W51.8"
     },
